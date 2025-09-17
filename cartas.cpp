@@ -7,17 +7,17 @@ using namespace std;
 
 int main(){
 
-    int n, k;
-    int cartas[n*k];
-    vector<int> cartas1;
-    int fav[k], hap[k];
-    unordered_map<int, int> cantCartas;
+    long long n, k;
+    long long cartas[n*k];
+    vector<int> cartas1, fav;
+    long long hap[k];
+    unordered_map<long long, long long> cantCartas;
 
     cin >> n >> k;
 
-    for(int i = 0; i < n*k; i++){
+    for(long long i = 0; i < n*k; i++){
 
-        int carta;
+        long long carta;
         cin >> carta;
         if(count(cartas1.begin(), cartas1.end(), carta)){
 
@@ -30,18 +30,18 @@ int main(){
         }
     } //O(n*k) pero estan acotados, 1<= n <= 500 y 1 <= k <= 10 -> O(1)
 
-    for(int i = 0; i < k; i++){
+    for(long long i = 0; i < n; i++){ //basado en jugadores
 
-        int indice;
+        long long indice;
         cin >> indice; //te dice la carta favorita
-        fav[indice] += 1; 
+        fav.push_back(indice);//despues compruebo con count 
     }
 
-    for(int i = 0; i < k; i++){
+    for(long long i = 0; i < k; i++){ //correspondientes a los niveles de felicidad
 
         cin >> hap[i];
     }
-
+    
     
 
     return 0;
